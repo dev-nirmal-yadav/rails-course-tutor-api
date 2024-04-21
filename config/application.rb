@@ -40,5 +40,15 @@ module RailsCourseTutorApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    dotenv_file = File.join(Rails.root, '.env')
+    if File.exist?(dotenv_file)
+      File.readlines(dotenv_file).each do |line|
+        next if line.start_with?('#') || line.strip.empty?
+
+        key, value = line.strip.split('=', 2)
+        ENV[key] = value
+      end
+    end
   end
 end

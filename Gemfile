@@ -54,4 +54,5 @@ group :test do
   gem 'faker', '~> 3.3', '>= 3.3.1'
   gem 'rspec-rails', '~> 6.1', '>= 6.1.2'
   gem 'shoulda-matchers', '~> 6.2'
+  gem 'simplecov', '~> 0.12.0'
 end

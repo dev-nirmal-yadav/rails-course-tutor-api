@@ -4,55 +4,60 @@ This Rails project implements APIs to manage courses and their associated tutors
 1. Common POST API to create a course & its tutors
 2. GET API to list all the courses along with their tutors
 
-## Installation
+### Installation
+
 Clone the repository:
+
 ```bash
 git clone https://github.com/dev-nirmal-yadav/rails-course-tutor-api.git
 cd rails-course-tutor-api.git
 ```
 
-## Ruby version
+### Requirements
 
-Ruby (version 3.1.2)
+  * Ruby **3.1.2**
 
-## Configuration
-Before running the application, make sure to configure your database settings in config/database.yml.
+### Configuration
 
-1. `rails_course_tutor_api` Role should be created in Postgres
+**Create a `.env` file**: In the root directory of your Rails application, create a file named `.env` and define below environment variables inside it.
 
-2. export ENV variable `RAILS_COURSE_TUTOR_API_DATABASE_PASSWORD` from bash to set the DB password.
+```
+DATABASE_USERNAME=db_user_name
+DATABASE_PASSWORD=db_password
+```
 
-`export RAILS_COURSE_TUTOR_API_DATABASE_PASSWORD='password'`
+**Note:**
+* `DATABASE_USERNAME` is the specified database role being used to connect to PostgreSQL. Make sure database role is created in PostgreSQL.
+* `DATABASE_PASSWORD` is the password of the specified database role being used to connect to PostgreSQL.
 
+### Running local instructions
 
-## Running local instructions
-
-* Database creation
+**Database creation**
 
 To create the database, run the following commands:
 
   `rails db:create`
 
-* Database initialization
+**Database initialization**
 
 To initialize the database and run migrations, use the following command:
 
   `rails db:migrate`
 
-* How to run the test suite
+**How to run the test suite**
 
 To run the RSpec test suite, execute the following command:
 
   `rspec`
 
-## Usage
+### Usage
 
-* Common POST API to create a course & its tutors
+**Common POST API to create a course & its tutors**
 
-URL: `/courses`
-Method: `POST`
-Description: Creates a new course along with its associated tutors.
-Request Body:
+- URL: `localhost:3000/courses`
+- Method: `POST`
+- Description: Creates a new course along with its associated tutors.
+- Request Body:
 
 ```json
 {
@@ -77,7 +82,7 @@ Request Body:
 }
 ```
 
-Response:
+- Response:
 
 ```json
 {
@@ -104,12 +109,12 @@ Response:
 ```
 
 
-2. GET API to list all the courses along with their tutors
+**GET API to list all the courses along with their tutors**
 
-URL: `/courses`
-Method: `GET`
-Description: Retrieves a list of all courses along with their associated tutors.
-Response:
+- URL: `localhost:3000/courses`
+- Method: `GET`
+- Description: Retrieves a list of all courses along with their associated tutors.
+- Response:
 
 ```json
 [
