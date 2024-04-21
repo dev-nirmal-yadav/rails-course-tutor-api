@@ -1,12 +1,12 @@
 class CoursesController < ApplicationController
   def create
     course = Course.create!(course_params)
-    render json: course, include: :tutors, status: :created
+    render json: course, status: :created
   end
 
   def index
     courses = Course.includes(:tutors)
-    render json: courses, include: :tutors
+    render json: courses
   end
 
   private
