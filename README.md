@@ -26,10 +26,6 @@ DATABASE_USERNAME=db_user_name
 DATABASE_PASSWORD=db_password
 ```
 
-**Note:**
-* `DATABASE_USERNAME` is the specified database role being used to connect to PostgreSQL. Make sure database role is created in PostgreSQL.
-* `DATABASE_PASSWORD` is the password of the specified database role being used to connect to PostgreSQL.
-
 ### Running local instructions
 
 **Database creation**
@@ -57,54 +53,56 @@ To run the RSpec test suite, execute the following command:
 - URL: `localhost:3000/courses`
 - Method: `POST`
 - Description: Creates a new course along with its associated tutors.
-- Request Body:
+- Request (cURL):
 
-```json
-{
+```bash
+curl --location 'localhost:3000/courses' \
+--header 'Content-Type: application/json' \
+--data-raw '{
   "course": {
     "name": "Course Name",
     "description": "Course Description",
-    "start_date": "YYYY-MM-DD",
-    "end_date": "YYYY-MM-DD",
+    "start_date": "2024-04-21",
+    "end_date": "2024-05-21",
     "tutors_attributes": [
       {
-        "first_name": "Tutor1 First Name",
-        "last_name": "Tutor1 Last Name",
+        "first_name": "First Name",
+        "last_name": "Last Name",
         "email": "tutor@example.com"
       },
       {
-        "first_name": "Tutor2 First Name",
-        "last_name": "Tutor2 Last Name",
+        "first_name": "First Name",
+        "last_name": "Last Name",
         "email": "tutor@example.com"
       }
     ]
   }
-}
+}'
 ```
 
 - Response:
 
 ```json
 {
-    "id": 1,
-    "name": "Course Name",
-    "description": "Course Description",
-    "start_date": "YYYY-MM-DD",
-    "end_date": "YYYY-MM-DD",
-    "tutors": [
-        {
-          "id": 1,
-          "first_name": "Tutor1 First Name",
-          "last_name": "Tutor1 Last Name",
-          "email": "tutor@example.com"
-        },
-        {
-          "id": 2,
-          "first_name": "Tutor2 First Name",
-          "last_name": "Tutor2 Last Name",
-          "email": "tutor@example.com"
-        }
-    ]
+  "id": 1,
+  "name": "Course Name",
+  "description": "Course Description",
+  "start_date": "2024-04-21",
+  "end_date": "2024-05-21",
+  "tutors":[
+    {
+      "id": 1,
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "tutor@example.com"
+    },
+    {
+      "id": 2,
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email":"tutor@example.com"
+    }
+  ]
 }
 ```
 
@@ -114,6 +112,12 @@ To run the RSpec test suite, execute the following command:
 - URL: `localhost:3000/courses`
 - Method: `GET`
 - Description: Retrieves a list of all courses along with their associated tutors.
+- Request (cURL):
+
+```bash
+curl --location 'localhost:3000/courses'
+```
+
 - Response:
 
 ```json
@@ -122,21 +126,21 @@ To run the RSpec test suite, execute the following command:
     "id": 1,
     "name": "Course Name",
     "description": "Course Description",
-    "start_date": "YYYY-MM-DD",
-    "end_date": "YYYY-MM-DD",
-    "tutors": [
-        {
-          "id": 1,
-          "first_name": "Tutor1 First Name",
-          "last_name": "Tutor1 Last Name",
-          "email": "tutor@example.com"
-        },
-        {
-          "id": 2,
-          "first_name": "Tutor2 First Name",
-          "last_name": "Tutor2 Last Name",
-          "email": "tutor@example.com"
-        }
+    "start_date": "2024-04-21",
+    "end_date": "2024-05-21",
+    "tutors":[
+      {
+        "id": 1,
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "tutor@example.com"
+      },
+      {
+        "id": 2,
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email":"tutor@example.com"
+      }
     ]
   }
 ]
