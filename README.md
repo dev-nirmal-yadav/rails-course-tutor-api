@@ -18,7 +18,9 @@ Ruby (version 3.1.2)
 ## Configuration
 Before running the application, make sure to configure your database settings in config/database.yml.
 
-export ENV variable `RAILS_COURSE_TUTOR_API_DATABASE_PASSWORD` from bash to set the DB password.
+1. `rails_course_tutor_api` Role should be created in Postgres
+
+2. export ENV variable `RAILS_COURSE_TUTOR_API_DATABASE_PASSWORD` from bash to set the DB password.
 
 `export RAILS_COURSE_TUTOR_API_DATABASE_PASSWORD='password'`
 
